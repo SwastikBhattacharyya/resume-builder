@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "preserve",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "types": ["vite/client", "axios"],
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+
+    "baseUrl": "./resources/js",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
