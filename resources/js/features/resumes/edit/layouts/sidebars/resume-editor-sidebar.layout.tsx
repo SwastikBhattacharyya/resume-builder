@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { ResumeEditorPreview } from "../../components/preview";
 import { ResumeEditorSidebar } from "../../components/sidebars/resume-editor-sidebar.component";
+import { ResumeEditorLivePreviewLayout } from "../preview/live-preview.layout";
 
 export function ResumeEditorSidebarLayout({
   children,
@@ -15,7 +17,9 @@ export function ResumeEditorSidebarLayout({
           <SidebarTrigger />
           {children}
         </div>
-        <div className="bg-gray-100/20">Preview</div>
+        <ResumeEditorLivePreviewLayout>
+          <ResumeEditorPreview />
+        </ResumeEditorLivePreviewLayout>
       </div>
     </SidebarProvider>
   );
