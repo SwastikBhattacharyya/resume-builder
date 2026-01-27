@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactDetail\ContactDetailController;
 use App\Http\Controllers\EducationDetail\EducationDetailController;
 use App\Http\Controllers\PersonalDetail\PersonalDetailController;
 use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\Skill\SkillController;
 use App\Http\Controllers\WorkExperience\WorkExperienceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,3 +18,4 @@ Route::resource('contact-details', ContactDetailController::class)->only(['updat
 Route::resource('education-details', EducationDetailController::class)->only(['store', 'update', 'destroy']);
 Route::resource('work-experiences', WorkExperienceController::class)->only(['store', 'update', 'destroy']);
 Route::resource('projects', ProjectController::class)->only(['store', 'update', 'destroy']);
+Route::resource('skills', SkillController::class)->only(['store', 'update', 'destroy']);
