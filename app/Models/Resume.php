@@ -38,4 +38,9 @@ class Resume extends Model
     {
         return $this->hasMany(WorkExperience::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
