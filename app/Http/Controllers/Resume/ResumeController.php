@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Resume;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Resume\StoreResumeRequest;
+use App\Http\Resources\Resume\ResumeResource;
 use App\Models\Resume;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -26,5 +27,12 @@ class ResumeController extends Controller
     public function create()
     {
         return Inertia::render('resumes/create');
+    }
+
+    public function edit(Resume $resume)
+    {
+        return Inertia::render('resumes/edit', [
+            'resume' => new ResumeResource($resume),
+        ]);
     }
 }
