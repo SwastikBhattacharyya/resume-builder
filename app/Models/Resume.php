@@ -23,4 +23,9 @@ class Resume extends Model
     {
         return $this->hasOne(PersonalDetail::class);
     }
+
+    public function contactDetail()
+    {
+        return $this->hasOne(ContactDetail::class);
+    }
 }
