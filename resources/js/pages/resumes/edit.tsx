@@ -1,4 +1,5 @@
 import { usePage } from "@inertiajs/react";
+import Tabs from "@/features/resumes/edit/components/tabs";
 import { ResumeEditorProvider } from "@/features/resumes/edit/contexts/resume-editor-context";
 import { ResumeEditorSidebarLayout } from "@/features/resumes/edit/layouts/sidebars/resume-editor-sidebar.layout";
 import type { Resume } from "@/features/resumes/types/resume.type";
@@ -12,7 +13,9 @@ export default function Edit({ resume }: { resume: EditProps }) {
 
   return (
     <ResumeEditorProvider resume={resume.data} url={url}>
-      <ResumeEditorSidebarLayout>Edit</ResumeEditorSidebarLayout>
+      <ResumeEditorSidebarLayout>
+        <Tabs />
+      </ResumeEditorSidebarLayout>
     </ResumeEditorProvider>
   );
 }
