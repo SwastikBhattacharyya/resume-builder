@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 import { ResumeEditorProvider } from "@/features/resumes/edit/contexts/resume-editor-context";
-import { ResumeEditorSidebarLayout } from "@/features/resumes/edit/layouts/sidebars/resume-editor.sidebar.layout";
+import { ResumeEditorSidebarLayout } from "@/features/resumes/edit/layouts/sidebars/resume-editor-sidebar.layout";
 import type { Resume } from "@/features/resumes/types/resume.type";
 
 type EditProps = {
