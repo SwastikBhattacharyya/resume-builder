@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Resources\Resume;
 
+use App\Http\Resources\Achievement\AchievementResource;
 use App\Http\Resources\ContactDetail\ContactDetailResource;
 use App\Http\Resources\EducationDetail\EducationDetailResource;
 use App\Http\Resources\PersonalDetail\PersonalDetailResource;
@@ -42,6 +43,12 @@ class ResumeResource extends JsonResource
             'skills'           => SkillResource::collection(
                 $this->skills
                     ->sortBy('name')
+                    ->values()
+            ),
+
+            'achievements'     => AchievementResource::collection(
+                $this->achievements
+                    ->sortByDesc(fn($a) => $a->date_awarded ?? PHP_INT_MIN)
                     ->values()
             ),
 

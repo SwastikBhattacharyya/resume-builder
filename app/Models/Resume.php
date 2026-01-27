@@ -48,4 +48,10 @@ class Resume extends Model
     {
         return $this->hasMany(Skill::class);
     }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
 }
