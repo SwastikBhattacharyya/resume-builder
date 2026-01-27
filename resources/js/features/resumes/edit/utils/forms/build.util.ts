@@ -11,6 +11,7 @@ import { usePersonalDetailForm } from "../../hooks/forms/use-personal-detail-for
 import { useProjectsForm } from "../../hooks/forms/use-projects-form.hook";
 import { useSkillsForm } from "../../hooks/forms/use-skills-form.hook";
 import { useWorkExperiencesForm } from "../../hooks/forms/use-work-experiences-form.hook";
+import { savedResumeToast } from "../../toasts/saved.toast";
 import {
   type ResumeEditorForms,
   ResumeEditorTab,
@@ -41,6 +42,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
         submitForm({
           form: personalDetailForm,
           route: `/personal-details/${resume.personalDetail.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.CONTACT_DETAILS]: {
@@ -49,6 +51,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
         submitForm({
           form: contactDetailForm,
           route: `/contact-details/${resume.contactDetail.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.EDUCATION_DETAILS]: {
@@ -60,6 +63,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
           fieldName: "educationDetails",
           route: (index) =>
             `/education-details/${resume.educationDetails[index]?.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.WORK_EXPERIENCES]: {
@@ -71,6 +75,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
           fieldName: "workExperiences",
           route: (index) =>
             `/work-experiences/${resume.workExperiences[index]?.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.PROJECTS]: {
@@ -81,6 +86,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
           form: projectsForm,
           fieldName: "projects",
           route: (index) => `/projects/${resume.projects[index]?.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.SKILLS]: {
@@ -91,6 +97,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
           form: skillsForm,
           fieldName: "skills",
           route: (index) => `/skills/${resume.skills[index]?.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
     [ResumeEditorTab.ACHIEVEMENTS]: {
@@ -101,6 +108,7 @@ export function buildResumeEditorForms(resume: Resume): ResumeEditorForms {
           form: achievementsForm,
           fieldName: "achievements",
           route: (index) => `/achievements/${resume.achievements[index]?.id}`,
+          onSuccess: savedResumeToast,
         }),
     },
   };

@@ -1,6 +1,7 @@
 import { createInertiaApp } from "@inertiajs/react";
 import axios from "axios";
 import { createRoot } from "react-dom/client";
+import { Toaster } from "sonner";
 
 window.axios = axios;
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -13,6 +14,11 @@ createInertiaApp({
     return pages[`./pages/${name}.tsx`];
   },
   setup({ el, App, props }) {
-    createRoot(el).render(<App {...props} />);
+    createRoot(el).render(
+      <>
+        <App {...props} />
+        <Toaster toastOptions={{ className: "font-sans" }} richColors />
+      </>,
+    );
   },
 });
