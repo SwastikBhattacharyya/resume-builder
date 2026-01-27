@@ -1,7 +1,7 @@
 {
   "$schema": "https://getcomposer.org/schema.json",
   "name": "swastik-bhattacharyya/resume-builder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "project",
   "license": "UNLICENSED",
   "require": {

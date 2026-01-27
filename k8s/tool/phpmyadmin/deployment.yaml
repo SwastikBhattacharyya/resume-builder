@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin-depl
+  namespace: tool
+spec:
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - name: phpmyadmin
+        image: phpmyadmin:5.2.3-apache
+        envFrom:
+          - configMapRef:
+              name: phpmyadmin-cm
+          - secretRef:
+              name: phpmyadmin-secret
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "256m"
+          limits:
+            memory: "256Mi"
+            cpu: "512m"
+        ports:
+        - containerPort: 80
+          name: http

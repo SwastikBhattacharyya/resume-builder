@@ -1,0 +1,57 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Model;
+
+class Resume extends Model
+{
+    use HasUuids;
+
+    protected $table = 'resumes';
+
+    protected $fillable = [
+        'title',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    public function personalDetail()
+    {
+        return $this->hasOne(PersonalDetail::class);
+    }
+
+    public function contactDetail()
+    {
+        return $this->hasOne(ContactDetail::class);
+    }
+
+    public function educationDetails()
+    {
+        return $this->hasMany(EducationDetail::class);
+    }
+
+    public function workExperiences()
+    {
+        return $this->hasMany(WorkExperience::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+}
