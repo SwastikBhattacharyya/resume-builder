@@ -28,4 +28,9 @@ class Resume extends Model
     {
         return $this->hasOne(ContactDetail::class);
     }
+
+    public function educationDetails()
+    {
+        return $this->hasMany(EducationDetail::class);
+    }
 }
