@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Resume\StoreResumeRequest;
 use App\Models\Resume;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class ResumeController extends Controller
 {
@@ -20,5 +21,10 @@ class ResumeController extends Controller
             $resume->personalDetail()->create();
             $resume->contactDetail()->create();
         });
+    }
+
+    public function create()
+    {
+        return Inertia::render('resumes/create');
     }
 }
