@@ -9,6 +9,7 @@ import type { projectsSchema } from "@/features/resumes/types/project.type";
 import type { Resume } from "@/features/resumes/types/resume.type";
 import type { skillsSchema } from "@/features/resumes/types/skill.type";
 import type { workExperiencesSchema } from "@/features/resumes/types/work-experience.type";
+import type { ResumeEditorFormsData } from "../hooks/editor-forms-data.type";
 
 export enum ResumeEditorTab {
   PERSONAL_DETAILS = 0,
@@ -67,6 +68,7 @@ export type ResumeEditorForms = {
 export type ResumeEditorContext = {
   resume: Resume;
   forms: ResumeEditorForms;
+  formsData: ResumeEditorFormsData;
   openAccordions: string[];
   setOpenAccordions: Dispatch<SetStateAction<string[]>>;
   currentTab: ResumeEditorTab;
