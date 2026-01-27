@@ -18,4 +18,9 @@ class Resume extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+    public function personalDetail()
+    {
+        return $this->hasOne(PersonalDetail::class);
+    }
 }
