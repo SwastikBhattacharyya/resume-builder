@@ -10,6 +10,20 @@ use Inertia\Inertia;
 
 class ResumeController extends Controller
 {
+    public function index()
+    {
+        $resumes = Resume::get();
+
+        return Inertia::render('resumes/index', [
+            'resumes' => ResumeResource::collection($resumes),
+        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('resumes/create');
+    }
+
     public function store(StoreResumeRequest $request)
     {
         $validated = $request->validated();
@@ -22,11 +36,6 @@ class ResumeController extends Controller
             $resume->personalDetail()->create();
             $resume->contactDetail()->create();
         });
-    }
-
-    public function create()
-    {
-        return Inertia::render('resumes/create');
     }
 
     public function edit(Resume $resume)
