@@ -1,3 +1,4 @@
+import { ResumesDashboardLayout } from "@/features/resumes/index/layouts/dashboard.layout";
 import type { Resume } from "@/features/resumes/types/resume.type";
 
 type IndexProps = {
@@ -5,5 +6,5 @@ type IndexProps = {
 };
 
 export default function Index({ resumes }: IndexProps) {
-  return <>Index</>;
+  return <ResumesDashboardLayout>Index</ResumesDashboardLayout>;
 }
