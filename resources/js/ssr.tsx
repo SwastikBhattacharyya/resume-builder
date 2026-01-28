@@ -1,6 +1,7 @@
 import { createInertiaApp } from "@inertiajs/react";
 import createServer from "@inertiajs/react/server";
 import ReactDOMServer from "react-dom/server";
+import { Toaster } from "sonner";
 
 const appName = import.meta.env.VITE_APP_NAME;
 createServer(
@@ -13,7 +14,12 @@ createServer(
         const pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
         return pages[`./pages/${name}.tsx`];
       },
-      setup: ({ App, props }) => <App {...props} />,
+      setup: ({ App, props }) => (
+        <>
+          <App {...props} />
+          <Toaster toastOptions={{ className: "font-sans" }} richColors />
+        </>
+      ),
     }),
   { cluster: true },
 );
