@@ -5,7 +5,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { Edit, Trash2 } from "lucide-react";
+import { Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -17,15 +17,16 @@ import {
 } from "@/components/ui/table";
 import type { Resume } from "../../types/resume.type";
 import type { ResumesTableData } from "../types/resumes-table.type";
+import { DeleteResumeDialog } from "./dialogs/delete-resume-dialog.component";
 
 export const resumesTablecolumns: ColumnDef<ResumesTableData>[] = [
   {
     accessorKey: "title",
-    header: "Title",
+    header: () => <div className="px-2">Title</div>,
   },
   {
     accessorKey: "createdAt",
-    header: "Created At",
+    header: () => <div className="px-2">Created At</div>,
     cell: ({ getValue }) => {
       const value = getValue<string | Date>();
       const date = new Date(value);
@@ -39,7 +40,7 @@ export const resumesTablecolumns: ColumnDef<ResumesTableData>[] = [
   },
   {
     id: "actions",
-    header: "Actions",
+    header: () => <div className="px-2">Actions</div>,
     cell: ({ row }) => {
       const resume = row.original;
 
@@ -56,14 +57,7 @@ export const resumesTablecolumns: ColumnDef<ResumesTableData>[] = [
               <Edit />
             </Link>
           </Button>
-          <Button
-            className="cursor-pointer"
-            variant="destructive"
-            size="icon-sm"
-            type="button"
-          >
-            <Trash2 />
-          </Button>
+          <DeleteResumeDialog id={resume.id} />
         </div>
       );
     },
