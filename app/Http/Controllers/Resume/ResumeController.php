@@ -44,4 +44,9 @@ class ResumeController extends Controller
             'resume' => new ResumeResource($resume),
         ]);
     }
+
+    public function destroy(Resume $resume)
+    {
+        $resume->delete();
+    }
 }
