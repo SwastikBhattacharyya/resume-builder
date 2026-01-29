@@ -15,6 +15,14 @@ Route::get('/', function () {
     return Inertia::render('index');
 });
 
+Route::get('/auth/sign-up', function () {
+    return Inertia::render("auth/sign-up");
+});
+
+Route::get('/auth/sign-in', function () {
+    return Inertia::render("auth/sign-in");
+});
+
 Route::resource('resumes', ResumeController::class)->only(['index', 'create', 'store', 'edit', 'destroy']);
 Route::resource('personal-details', PersonalDetailController::class)->only(['update']);
 Route::resource('contact-details', ContactDetailController::class)->only(['update']);
