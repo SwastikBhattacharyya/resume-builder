@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [0.3.0](https://github.com/SwastikBhattacharyya/resume-builder/compare/v0.2.0..v0.3.0) - 2026-01-29
+
+### Features
+
+- **(resumes/destroy)** add destroy route for resumes - ([25d143f](https://github.com/SwastikBhattacharyya/resume-builder/commit/25d143fa264590b2204f6c8237309e2e93daf1d7)) - Swastik Bhattacharyya
+- **(resumes/edit)** add store resume dialog with form - ([1290c69](https://github.com/SwastikBhattacharyya/resume-builder/commit/1290c69860489e4d51497a789c047c6d4cc14d31)) - Swastik Bhattacharyya
+- **(resumes/index)** add index route for resumes - ([62637a6](https://github.com/SwastikBhattacharyya/resume-builder/commit/62637a611e2d77632b46c0b3b3c7f3e5b7f99933)) - Swastik Bhattacharyya
+- **(resumes/index)** add resumes dashboard layout with nav, header and footer - ([651a952](https://github.com/SwastikBhattacharyya/resume-builder/commit/651a952c2c922ed4e21d1cca0a9f26e907990ee5)) - Swastik Bhattacharyya
+- **(resumes/index)** add resumes table - ([4b29364](https://github.com/SwastikBhattacharyya/resume-builder/commit/4b2936416da9bf2822a927d64c45f7294ad87ade)) - Swastik Bhattacharyya
+- **(resumes/index)** add delete resume dialog - ([0d9c35e](https://github.com/SwastikBhattacharyya/resume-builder/commit/0d9c35eeb4ed3997d18330579bf2aa6efe0b77b2)) - Swastik Bhattacharyya
+
+---
 ## [0.2.0](https://github.com/SwastikBhattacharyya/resume-builder/compare/v0.1.0..v0.2.0) - 2026-01-28
 
 ### Features

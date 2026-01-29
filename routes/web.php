@@ -15,7 +15,7 @@ Route::get('/', function () {
     return Inertia::render('index');
 });
 
-Route::resource('resumes', ResumeController::class)->only(['store', 'create', 'edit']);
+Route::resource('resumes', ResumeController::class)->only(['index', 'create', 'store', 'edit', 'destroy']);
 Route::resource('personal-details', PersonalDetailController::class)->only(['update']);
 Route::resource('contact-details', ContactDetailController::class)->only(['update']);
 Route::resource('education-details', EducationDetailController::class)->only(['store', 'update', 'destroy']);
