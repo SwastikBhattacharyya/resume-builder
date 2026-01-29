@@ -1,6 +1,5 @@
-import { LucidePlus } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { StoreResumeDialog } from "./dialogs/store-resume-dialog.component";
 
 export function ResumesDashboardHeader() {
   return (
@@ -13,10 +12,7 @@ export function ResumesDashboardHeader() {
       </div>
       <div className="flex w-full justify-between gap-x-2">
         <Input className="max-w-56" placeholder="Search Resumes..." />
-        <Button className="justify-center-safe flex cursor-pointer gap-x-2">
-          <LucidePlus />
-          <span>Create New Resume</span>
-        </Button>
+        <StoreResumeDialog />
       </div>
     </header>
   );
