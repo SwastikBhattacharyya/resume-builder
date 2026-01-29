@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Achievement\AchievementController;
 use App\Http\Controllers\Auth\SignInController;
+use App\Http\Controllers\Auth\SignOutController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\ContactDetail\ContactDetailController;
 use App\Http\Controllers\EducationDetail\EducationDetailController;
@@ -26,6 +27,8 @@ Route::get('/auth/sign-in', function () {
     return Inertia::render("auth/sign-in");
 });
 Route::post('/auth/sign-in', SignInController::class);
+
+Route::post('/auth/sign-out', SignOutController::class);
 
 Route::middleware('auth')->group(function () {
     Route::resource('resumes', ResumeController::class)->only(['index', 'create', 'store', 'edit', 'destroy']);
