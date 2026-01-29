@@ -1,5 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "@inertiajs/react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -24,7 +26,11 @@ export function SignUpForm() {
   });
 
   function onSubmit(values: SignUp) {
-    console.log(values);
+    router.post("/auth/sign-up", values, {
+      onSuccess: () => {
+        toast.success("Signed up successfully");
+      },
+    });
   }
 
   return (

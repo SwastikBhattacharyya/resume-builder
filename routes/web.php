@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Achievement\AchievementController;
+use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\ContactDetail\ContactDetailController;
 use App\Http\Controllers\EducationDetail\EducationDetailController;
 use App\Http\Controllers\PersonalDetail\PersonalDetailController;
@@ -18,6 +19,7 @@ Route::get('/', function () {
 Route::get('/auth/sign-up', function () {
     return Inertia::render("auth/sign-up");
 });
+Route::post('/auth/sign-up', SignUpController::class)->name('auth.sign-up');
 
 Route::get('/auth/sign-in', function () {
     return Inertia::render("auth/sign-in");
