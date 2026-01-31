@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Achievement\AchievementController;
+use App\Http\Controllers\Auth\SignInController;
+use App\Http\Controllers\Auth\SignOutController;
+use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\ContactDetail\ContactDetailController;
 use App\Http\Controllers\EducationDetail\EducationDetailController;
 use App\Http\Controllers\PersonalDetail\PersonalDetailController;
@@ -15,11 +18,25 @@ Route::get('/', function () {
     return Inertia::render('index');
 });
 
-Route::resource('resumes', ResumeController::class)->only(['index', 'create', 'store', 'edit', 'destroy']);
-Route::resource('personal-details', PersonalDetailController::class)->only(['update']);
-Route::resource('contact-details', ContactDetailController::class)->only(['update']);
-Route::resource('education-details', EducationDetailController::class)->only(['store', 'update', 'destroy']);
-Route::resource('work-experiences', WorkExperienceController::class)->only(['store', 'update', 'destroy']);
-Route::resource('projects', ProjectController::class)->only(['store', 'update', 'destroy']);
-Route::resource('skills', SkillController::class)->only(['store', 'update', 'destroy']);
-Route::resource('achievements', AchievementController::class)->only(['store', 'update', 'destroy']);
+Route::get('/auth/sign-up', function () {
+    return Inertia::render("auth/sign-up");
+});
+Route::post('/auth/sign-up', SignUpController::class);
+
+Route::get('/auth/sign-in', function () {
+    return Inertia::render("auth/sign-in");
+});
+Route::post('/auth/sign-in', SignInController::class);
+
+Route::post('/auth/sign-out', SignOutController::class);
+
+Route::middleware('auth')->group(function () {
+    Route::resource('resumes', ResumeController::class)->only(['index', 'create', 'store', 'edit', 'destroy']);
+    Route::resource('personal-details', PersonalDetailController::class)->only(['update']);
+    Route::resource('contact-details', ContactDetailController::class)->only(['update']);
+    Route::resource('education-details', EducationDetailController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('work-experiences', WorkExperienceController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('projects', ProjectController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('skills', SkillController::class)->only(['store', 'update', 'destroy']);
+    Route::resource('achievements', AchievementController::class)->only(['store', 'update', 'destroy']);
+});
