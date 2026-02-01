@@ -155,13 +155,13 @@ export default function Index() {
                         <h2 className="font-bold text-3xl md:text-5xl">
                             Ready to land your next role?
                         </h2>
-                        <p className="mx-auto mt-6 max-w-xl text-lg opacity-80">
+                        <p className="mx-auto my-5 max-w-xl text-lg opacity-80">
                             Build a resume that actually gets interviews.
                         </p>
-                        <button
-                            className="mt-10 rounded-lg bg-white px-10 py-4 font-bold text-primary shadow-xl transition-transform hover:scale-105">
+                        <Link href="/resumes"
+                              className="mt-10 rounded-lg bg-white px-10 py-4 font-bold text-primary shadow-xl transition-transform hover:scale-105">
                             Build Your Resume Now
-                        </button>
+                        </Link>
                     </div>
                 </section>
 
