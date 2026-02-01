@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Achievement\AchievementController;
+use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignOutController;
 use App\Http\Controllers\Auth\SignUpController;
@@ -39,4 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class)->only(['store', 'update', 'destroy']);
     Route::resource('skills', SkillController::class)->only(['store', 'update', 'destroy']);
     Route::resource('achievements', AchievementController::class)->only(['store', 'update', 'destroy']);
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', AdminDashboard::class)->name('admin');
 });
